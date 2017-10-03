@@ -1,6 +1,5 @@
 package com.example.endlessrunnerapp;
 
-import android.*;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
@@ -20,15 +19,15 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
 
 public class RunTracker extends AppCompatActivity {
-    private static final int MILLISECONDS_PER_SECOND = 1000;
+    private static final int MILLISECONDS = 1000;
 
-    public static final int UPDATE_INTERVAL_IN_SECONDS = 60;
+    public static final int UPDATE_INTERVAL_SECONDS = 60;
     private static final long UPDATE_INTERVAL =
-            MILLISECONDS_PER_SECOND * UPDATE_INTERVAL_IN_SECONDS;
+            MILLISECONDS * UPDATE_INTERVAL_SECONDS;
 
-    private static final int FASTEST_INTERVAL_IN_SECONDS = 60;
+    private static final int FASTEST_INTERVAL_SECONDS = 60;
     private static final long FASTEST_INTERVAL =
-            MILLISECONDS_PER_SECOND * FASTEST_INTERVAL_IN_SECONDS;
+            MILLISECONDS * FASTEST_INTERVAL_SECONDS;
 
     LocationRequest mLocationRequest;
     private LocationCallback mLocationCallback;
@@ -86,8 +85,6 @@ public class RunTracker extends AppCompatActivity {
                     lastLocation = location;
                 }
             }
-
-            ;
         };
 
         if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(this,
