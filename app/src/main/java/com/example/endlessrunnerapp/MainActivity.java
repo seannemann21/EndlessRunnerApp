@@ -17,4 +17,19 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, RunTracker.class);
         startActivity(intent);
     }
+
+    public void goToLeaderboards(View view) {
+        Intent intent = new Intent(this, Leaderboards.class);
+        startActivity(intent);
+    }
+
+    public void goToPersonalStats(View view) {
+        Intent intent = new Intent(this, PersonalStats.class);
+        startActivity(intent);
+    }
+
+    public void goToHelp(View view) {
+        Intent intent = new Intent(this, Help.class);
+        startActivity(intent);
+    }
 }

@@ -3,6 +3,7 @@
     package="com.example.endlessrunnerapp">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,7 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RunTracker"></activity>
+        <activity android:name=".RunTracker" />
+        <activity android:name=".Leaderboards" />
+        <activity android:name=".Help" />
+        <activity android:name=".PersonalStats"></activity>
     </application>
 
 </manifest>
