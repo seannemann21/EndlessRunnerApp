@@ -19,9 +19,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".RunTracker" />
-        <activity android:name=".Leaderboards" />
+        <activity android:name=".LeaderBoardsActivity" />
         <activity android:name=".Help" />
-        <activity android:name=".PersonalStats"></activity>
+        <activity android:name=".PersonalStats" />
+        <activity android:name=".SingleFragmentActivity"></activity>
     </application>
 
 </manifest>
