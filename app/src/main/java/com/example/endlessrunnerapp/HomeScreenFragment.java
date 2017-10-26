@@ -10,10 +10,7 @@ import android.widget.Button;
 
 
 /**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link HomeScreenFragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
+ * Fragment for the home page where the user can navigate to all pages
  */
 public class HomeScreenFragment extends Fragment implements View.OnClickListener {
 
@@ -70,7 +67,7 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
     }
 
     public void goToPersonalStats() {
-        Intent intent = new Intent(getActivity().getApplicationContext(), PersonalStats.class);
+        Intent intent = new Intent(getActivity().getApplicationContext(), PersonalStatsActivity.class);
         startActivity(intent);
     }
 

@@ -21,7 +21,7 @@
         <activity android:name=".RunTrackerActivity" />
         <activity android:name=".LeaderBoardsActivity" />
         <activity android:name=".HelpActivity" />
-        <activity android:name=".PersonalStats" />
+        <activity android:name=".PersonalStatsActivity" />
     </application>
 
 </manifest>
