@@ -11,18 +11,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".HomeScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RunTracker" />
+        <activity android:name=".RunTrackerActivity" />
         <activity android:name=".LeaderBoardsActivity" />
-        <activity android:name=".Help" />
+        <activity android:name=".HelpActivity" />
         <activity android:name=".PersonalStats" />
-        <activity android:name=".SingleFragmentActivity"></activity>
     </application>
 
 </manifest>

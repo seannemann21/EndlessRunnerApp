@@ -1,14 +1,14 @@
 package com.example.endlessrunnerapp;
 
-import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.location.LocationManager;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -16,9 +16,13 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.LocationSettingsRequest;
+//import com.google.android.gms.location.LocationSettingsRequest;
 
-public class RunTracker extends AppCompatActivity {
+
+/**
+ *  Fragment for tracking a persons movement
+ */
+public class RunTrackerFragment extends Fragment {
     private static final int MILLISECONDS = 1000;
 
     public static final int UPDATE_INTERVAL_SECONDS = 60;
@@ -33,22 +37,29 @@ public class RunTracker extends AppCompatActivity {
     private LocationCallback mLocationCallback;
     private FusedLocationProviderClient mFusedLocationClient;
 
-    private LocationManager locationManager;
     private Location lastLocation;
     private final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
-    private final String TAG = "RunTracker";
     private float distanceWalked = 0;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_run_tracker);
-        Log.d(TAG, "onCreate called");
+    private TextView textView = null;
 
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)
+
+    public RunTrackerFragment() {
+        // Required empty public constructor
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        View v = inflater.inflate(R.layout.fragment_run_tracker, container, false);
+
+        textView = (TextView) v.findViewById(R.id.distanceMoved);
+
+        if (ContextCompat.checkSelfPermission(this.getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
 
-            ActivityCompat.requestPermissions(this,
+            ActivityCompat.requestPermissions(this.getActivity(),
                     new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
                     MY_PERMISSIONS_REQUEST_LOCATION);
         }
@@ -57,19 +68,21 @@ public class RunTracker extends AppCompatActivity {
             trackDistance();
         }
 
+        return v;
     }
+
 
     public void trackDistance()
     {
-        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this.getActivity());
 
         mLocationRequest = new LocationRequest();
         mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         mLocationRequest.setInterval(UPDATE_INTERVAL);
         mLocationRequest.setFastestInterval(FASTEST_INTERVAL);
 
-        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
-                .addLocationRequest(mLocationRequest);
+//        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
+//                .addLocationRequest(mLocationRequest);
 
         mLocationCallback = new LocationCallback() {
             @Override
@@ -77,7 +90,6 @@ public class RunTracker extends AppCompatActivity {
                 for (Location location : locationResult.getLocations()) {
                     if (lastLocation != null) {
                         // Called when a new location is found by the network location provider.
-                        TextView textView = (TextView) findViewById(R.id.textView);
                         distanceWalked += location.distanceTo(lastLocation);
                         String newText = "Distance Traveled = " + distanceWalked;
                         textView.setText(newText);
@@ -87,8 +99,8 @@ public class RunTracker extends AppCompatActivity {
             }
         };
 
-        if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_FINE_LOCATION)) {
+        if (PackageManager.PERMISSION_GRANTED == ContextCompat.checkSelfPermission(this.getContext(),
+                android.Manifest.permission.ACCESS_FINE_LOCATION)) {
             mFusedLocationClient.requestLocationUpdates(mLocationRequest,
                     mLocationCallback,
                     null /* Looper */);
@@ -99,39 +111,10 @@ public class RunTracker extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
         if (requestCode == MY_PERMISSIONS_REQUEST_LOCATION) if (permissions.length == 1 &&
-                permissions[0].equals(Manifest.permission.ACCESS_FINE_LOCATION) &&
+                permissions[0].equals(android.Manifest.permission.ACCESS_FINE_LOCATION) &&
                 grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                trackDistance();
+            trackDistance();
         }
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.d(TAG, "onStart called");
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.d(TAG, "onResume called");
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.d(TAG, "onPause called");
-    }
-
-    @Override
-    protected void onStop(){
-        super.onStop();
-        Log.d(TAG, "onStop called");
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.d(TAG, "onDestroy called");
-    }
 }
