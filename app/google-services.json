@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "33125983783",
+    "firebase_url": "https://endlessrunnerapp.firebaseio.com",
+    "project_id": "endlessrunnerapp",
+    "storage_bucket": "endlessrunnerapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:33125983783:android:c9d9c4f44ebf7da5",
+        "android_client_info": {
+          "package_name": "com.example.endlessrunnerapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "33125983783-p6cdef4pq4lq8t85n7usid27t16k4nol.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCk4_doyzzHOHJz7UYJ1rX1vnXM4lIZXPE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
