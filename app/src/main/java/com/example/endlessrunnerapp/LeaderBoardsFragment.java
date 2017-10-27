@@ -17,20 +17,11 @@ public class LeaderBoardsFragment extends Fragment implements View.OnClickListen
     }
 
 
-    // Remove possibly
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_leader_boards, container, false);
-
-        // TODO: hook up buttons, etc.
 
         return v;
     }
