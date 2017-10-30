@@ -34,7 +34,7 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
         btnStats.setOnClickListener(this);
         Button btnHelp = (Button) v.findViewById(R.id.buttonHelp);
         btnHelp.setOnClickListener(this);
-        Button btnGame = (Button) v.findViewById(R.id.button6);
+        Button btnGame = (Button) v.findViewById(R.id.buttonPlay);
         btnHelp.setOnClickListener(this);
 
         return v;
@@ -55,8 +55,8 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
             case R.id.buttonHelp:
                 goToHelp();
                 break;
-            case R.id.button6:
-                goToHelp();
+            case R.id.buttonPlay:
+                goToGame();
                 break;
         }
     }

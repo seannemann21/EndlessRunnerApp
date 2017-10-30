@@ -13,11 +13,18 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.example.models.CurrentUserData;
+import com.example.endlessrunnerapp.Database;
+
+import com.example.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 
 
 /**
@@ -92,7 +99,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             // User exists and is validated, go to the home page
-                            goToHome();
+                            goToHome(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
@@ -114,6 +121,15 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
 
         String email = mEmailEditText.getText().toString();
         String password = mPasswordEditText.getText().toString();
+        String username = mUsernameEditText.getText().toString();
+
+        // Lets create a new user
+        final User newUser = new User();
+        newUser.email = email;
+        newUser.username = username;
+        newUser.bestGameRun = null;
+        newUser.longestRun = null;
+        newUser.runningPoints  = 0;
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
@@ -123,8 +139,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-
-                            goToHome();
+                            Database.setUserInformation(user.getUid(), newUser);
+                            goToHome(user);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
@@ -137,11 +153,25 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 });
     }
 
-    private void goToHome() {
+    private void goToHome(FirebaseUser user) {
         // Need to set the users data
 
-        Intent intent = new Intent(getActivity().getApplicationContext(), HomeScreenActivity.class);
-        startActivity(intent);
+        Database.getUserInformation(user.getUid(), new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                User user = dataSnapshot.getValue(User.class);
+                CurrentUserData.username = user.username;
+
+
+                Intent intent = new Intent(getActivity().getApplicationContext(), HomeScreenActivity.class);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
 
@@ -170,8 +200,10 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        //updateUI(currentUser);
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+//        if (currentUser != null) {
+//            goToHome(currentUser);
+//        }
     }
 
 

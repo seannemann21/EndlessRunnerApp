@@ -7,9 +7,13 @@ package com.example.models;
 public class User {
     public String email;
     public String username;
-    public String password;
+    //public String password;
     public int runningPoints;
     public RealRun longestRun;
     public GameRun bestGameRun;
+
+    public User() {
+
+    }
 
 }

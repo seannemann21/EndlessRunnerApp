@@ -11,4 +11,5 @@ public class CurrentUserData {
     public static int runningPoints;
     public static RealRun longestRun;
     public static GameRun bestGameRun;
+
 }
