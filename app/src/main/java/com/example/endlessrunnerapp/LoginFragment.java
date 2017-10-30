@@ -92,8 +92,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             // User exists and is validated, go to the home page
-                            Intent intent = new Intent(getActivity().getApplicationContext(), HomeScreenActivity.class);
-                            startActivity(intent);
+                            goToHome();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
@@ -125,8 +124,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
 
-                            Intent intent = new Intent(getActivity().getApplicationContext(), HomeScreenActivity.class);
-                            startActivity(intent);
+                            goToHome();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
@@ -137,6 +135,13 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                         // ...
                     }
                 });
+    }
+
+    private void goToHome() {
+        // Need to set the users data
+
+        Intent intent = new Intent(getActivity().getApplicationContext(), HomeScreenActivity.class);
+        startActivity(intent);
     }
 
 
