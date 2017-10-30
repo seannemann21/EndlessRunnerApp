@@ -35,10 +35,6 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
         Button btnHelp = (Button) v.findViewById(R.id.buttonHelp);
         btnHelp.setOnClickListener(this);
 
-        // Remove in future
-        Button btnLogin = (Button) v.findViewById(R.id.buttonLogin);
-        btnLogin.setOnClickListener(this);
-
         return v;
     }
 
@@ -57,9 +53,6 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
             case R.id.buttonHelp:
                 goToHelp();
                 break;
-            case R.id.buttonLogin:
-                Intent intent = new Intent(getActivity().getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
         }
     }
 

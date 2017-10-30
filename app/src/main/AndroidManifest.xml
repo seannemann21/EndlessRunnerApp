@@ -18,7 +18,7 @@
         <activity android:name=".PersonalStatsActivity" />
         <activity
             android:name=".LoginActivity"
-            android:label="Login Page">
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
