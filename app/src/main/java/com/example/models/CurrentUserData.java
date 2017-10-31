@@ -8,7 +8,7 @@ public class CurrentUserData {
     public static String email;
     public static String username;
     public static String password;
-    public static int runningPoints;
-    public static RealRun longestRun;
-    public static GameRun bestGameRun;
+    public static int runningPoints = 10;
+    public static RealRun longestRun = new RealRun();
+    public static GameRun bestGameRun = new GameRun();
 }

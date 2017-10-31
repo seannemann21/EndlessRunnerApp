@@ -5,12 +5,12 @@ package com.example.endlessrunnerapp.game;
  */
 
 public class UserData {
-    public static int runningPoints = 5;
-    public static int highScore = 0;
+    public static int runningPoints;
+    public static int highScore;
 
-    public static void updateRunningPoints(int rPoints)
+    public static void updateRunningPoints(int points)
     {
-        runningPoints = rPoints;
+        runningPoints = points;
     }
 
     public static void updateHighScore(int score)
@@ -18,3 +18,4 @@ public class UserData {
         highScore = score;
     }
 }
+

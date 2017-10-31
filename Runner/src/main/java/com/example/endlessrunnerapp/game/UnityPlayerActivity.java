@@ -21,6 +21,7 @@ public class UnityPlayerActivity extends Activity
     {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
+
         Intent intent = getIntent();
         UserData.highScore = intent.getIntExtra("mostPoints", 0);
         UserData.runningPoints = intent.getIntExtra("runningPoints", 0);
@@ -31,6 +32,18 @@ public class UnityPlayerActivity extends Activity
         setContentView(mUnityPlayer);
         mUnityPlayer.requestFocus();
     }
+
+    @Override
+    public void finish()
+    {
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("runningPoints", UserData.runningPoints);
+        resultIntent.putExtra("newHighScore", UserData.highScore);
+        setResult(Activity.RESULT_OK, resultIntent);
+
+        super.finish();
+    }
+
 
     @Override protected void onNewIntent(Intent intent)
     {
@@ -44,11 +57,6 @@ public class UnityPlayerActivity extends Activity
     // Quit Unity
     @Override protected void onDestroy ()
     {
-        Intent resultIntent = new Intent();
-        resultIntent.putExtra("runningPoints", UserData.runningPoints);
-        resultIntent.putExtra("newHighScore", UserData.highScore);
-        setResult(Activity.RESULT_OK, resultIntent);
-        finish();
         mUnityPlayer.quit();
         super.onDestroy();
     }

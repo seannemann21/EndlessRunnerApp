@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.models.CurrentUserData;
+
 
 /**
  * Fragment for the home page where the user can navigate to all pages
@@ -28,14 +30,14 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
         // Hook up the buttons
         Button btnRun = (Button) v.findViewById(R.id.buttonRun);
         btnRun.setOnClickListener(this);
-        Button btnLdrBds = (Button) v.findViewById(R.id.buttonLeaderBoards);
+        Button btnLdrBds = (Button) v.findViewById(R.id.button8);
         btnLdrBds.setOnClickListener(this);
         Button btnStats = (Button) v.findViewById(R.id.buttonStats);
         btnStats.setOnClickListener(this);
         Button btnHelp = (Button) v.findViewById(R.id.buttonHelp);
         btnHelp.setOnClickListener(this);
         Button btnGame = (Button) v.findViewById(R.id.button6);
-        btnHelp.setOnClickListener(this);
+        btnGame.setOnClickListener(this);
 
         return v;
     }
@@ -46,7 +48,7 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
             case R.id.buttonRun:
                 goToRun();
                 break;
-            case R.id.buttonLeaderBoards:
+            case R.id.button8:
                 goToLeaderboards();
                 break;
             case R.id.buttonStats:
@@ -56,7 +58,7 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
                 goToHelp();
                 break;
             case R.id.button6:
-                goToHelp();
+                goToGame();
                 break;
         }
     }

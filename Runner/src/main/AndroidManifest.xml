@@ -5,7 +5,7 @@
     <activity android:label="@string/app_name" android:screenOrientation="reverseLandscape" android:launchMode="singleTask" android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale|layoutDirection" android:name="com.example.endlessrunnerapp.game.UnityPlayerActivity">
       <meta-data android:name="unityplayer.UnityActivity" android:value="true" />
     </activity>
-    <meta-data android:name="unity.build-id" android:value="61b56dfe-05fa-49b2-b174-079ea799af8d" />
+    <meta-data android:name="unity.build-id" android:value="b96ec491-5fda-4976-881c-b791352488c2" />
     <meta-data android:name="unity.splash-mode" android:value="0" />
     <meta-data android:name="unity.splash-enable" android:value="True" />
   </application>
