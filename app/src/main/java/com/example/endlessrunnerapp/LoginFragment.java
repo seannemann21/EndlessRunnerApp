@@ -161,6 +161,10 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
                 CurrentUserData.username = user.username;
+                CurrentUserData.email = user.email;
+                CurrentUserData.bestGameRun = user.bestGameRun;
+                CurrentUserData.longestRun = user.longestRun;
+                CurrentUserData.runningPoints = user.runningPoints;
 
 
                 Intent intent = new Intent(getActivity().getApplicationContext(), HomeScreenActivity.class);

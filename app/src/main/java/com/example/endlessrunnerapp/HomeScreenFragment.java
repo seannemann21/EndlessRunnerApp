@@ -7,6 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.example.models.CurrentUserData;
+
+import org.w3c.dom.Text;
 
 
 /**
@@ -24,6 +29,10 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home_screen, container, false);
+
+        // Update the home screen greeting
+        TextView greeting = (TextView) v.findViewById(R.id.homeScreenGreeting);
+        greeting.append(" " + CurrentUserData.username + "?");
 
         // Hook up the buttons
         Button btnRun = (Button) v.findViewById(R.id.buttonRun);
