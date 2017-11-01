@@ -7,6 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.example.models.CurrentUserData;
+
+import org.w3c.dom.Text;
 import android.widget.Toast;
 
 import com.example.models.CurrentUserData;
@@ -28,17 +33,21 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home_screen, container, false);
 
+        // Update the home screen greeting
+        TextView greeting = (TextView) v.findViewById(R.id.homeScreenGreeting);
+        greeting.append(" " + CurrentUserData.username + "?");
+
         // Hook up the buttons
         Button btnRun = (Button) v.findViewById(R.id.buttonRun);
         btnRun.setOnClickListener(this);
-        Button btnLdrBds = (Button) v.findViewById(R.id.button8);
+        Button btnGame = (Button) v.findViewById(R.id.buttonPlay);
+        btnGame.setOnClickListener(this);
+        Button btnLdrBds = (Button) v.findViewById(R.id.buttonLeaderBoards);
         btnLdrBds.setOnClickListener(this);
         Button btnStats = (Button) v.findViewById(R.id.buttonStats);
         btnStats.setOnClickListener(this);
         Button btnHelp = (Button) v.findViewById(R.id.buttonHelp);
         btnHelp.setOnClickListener(this);
-        Button btnGame = (Button) v.findViewById(R.id.button6);
-        btnGame.setOnClickListener(this);
 
         return v;
     }
@@ -49,7 +58,7 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
             case R.id.buttonRun:
                 goToRun();
                 break;
-            case R.id.button8:
+            case R.id.buttonLeaderBoards:
                 goToLeaderboards();
                 break;
             case R.id.buttonStats:
@@ -58,7 +67,7 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
             case R.id.buttonHelp:
                 goToHelp();
                 break;
-            case R.id.button6:
+            case R.id.buttonPlay:
                 goToGame();
                 break;
         }

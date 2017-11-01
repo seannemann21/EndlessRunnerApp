@@ -9,6 +9,6 @@
     <string name="login">Login</string>
     <string name="new_user">New User</string>
 
-    <string name="home_screen_greeting">Ready To Run?</string>
+    <string name="home_screen_greeting">Ready To Run, </string>
 
 </resources>
