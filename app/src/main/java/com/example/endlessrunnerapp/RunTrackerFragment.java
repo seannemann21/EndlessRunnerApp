@@ -11,11 +11,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.models.CurrentUserData;
+import com.example.models.RealRun;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
+
+import java.util.Calendar;
+import java.util.UUID;
 //import com.google.android.gms.location.LocationSettingsRequest;
 
 
@@ -25,11 +30,11 @@ import com.google.android.gms.location.LocationServices;
 public class RunTrackerFragment extends Fragment {
     private static final int MILLISECONDS = 1000;
 
-    public static final int UPDATE_INTERVAL_SECONDS = 60;
+    public static final int UPDATE_INTERVAL_SECONDS = 10;
     private static final long UPDATE_INTERVAL =
             MILLISECONDS * UPDATE_INTERVAL_SECONDS;
 
-    private static final int FASTEST_INTERVAL_SECONDS = 60;
+    private static final int FASTEST_INTERVAL_SECONDS = 10;
     private static final long FASTEST_INTERVAL =
             MILLISECONDS * FASTEST_INTERVAL_SECONDS;
 
@@ -39,10 +44,12 @@ public class RunTrackerFragment extends Fragment {
 
     private Location lastLocation;
     private final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
-    private float distanceWalked = 0;
+    private float distanceMoved = 0;
 
-    private TextView textView = null;
-
+    private TextView distanceMovedTxt = null;
+    private TextView runningPointsEarnedTxt = null;
+    private TextView currentRunningPointsTxt = null;
+    private RealRun currentRun = new RealRun();
 
     public RunTrackerFragment() {
         // Required empty public constructor
@@ -54,7 +61,9 @@ public class RunTrackerFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_run_tracker, container, false);
 
-        textView = (TextView) v.findViewById(R.id.distanceMoved);
+        distanceMovedTxt = (TextView) v.findViewById(R.id.distanceMoved);
+        runningPointsEarnedTxt = (TextView) v.findViewById(R.id.runningPointsEarned);
+        currentRunningPointsTxt = (TextView) v.findViewById(R.id.totalRunningPoints);
 
         if (ContextCompat.checkSelfPermission(this.getContext(), android.Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -90,9 +99,10 @@ public class RunTrackerFragment extends Fragment {
                 for (Location location : locationResult.getLocations()) {
                     if (lastLocation != null) {
                         // Called when a new location is found by the network location provider.
-                        distanceWalked += location.distanceTo(lastLocation);
-                        String newText = "Distance Traveled = " + distanceWalked;
-                        textView.setText(newText);
+                        distanceMoved += location.distanceTo(lastLocation);
+                        distanceMovedTxt.setText("Distance Moved = " + distanceMoved + " m");
+                        runningPointsEarnedTxt.setText("Running Points Earned on Run: " + ((int) distanceMoved) / 10);
+                        currentRunningPointsTxt.setText("Current Total Running Points: " + (((int) distanceMoved) / 10 + CurrentUserData.runningPoints));
                     }
                     lastLocation = location;
                 }
@@ -116,5 +126,22 @@ public class RunTrackerFragment extends Fragment {
             trackDistance();
         }
     }
+
+    @Override
+    public void onDestroy()
+    {
+        CurrentUserData.runningPoints += ((int) distanceMoved) / 10;
+        if(distanceMoved > CurrentUserData.longestRun.distanceRan)
+        {
+            currentRun.date = Calendar.getInstance().getTime();
+            currentRun.id = UUID.randomUUID().toString();
+            currentRun.distanceRan = distanceMoved;
+            currentRun.runningPointsEarned = ((int) distanceMoved) / 10;
+            currentRun.userEmail = CurrentUserData.email;
+            CurrentUserData.longestRun = currentRun;
+        }
+        super.onDestroy();
+    }
+
 
 }

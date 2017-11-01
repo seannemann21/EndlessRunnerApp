@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.models.CurrentUserData;
 
@@ -84,7 +85,15 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
     }
 
     public void goToGame() {
-        Intent intent = new Intent(getActivity().getApplicationContext(), GameLauncher.class);
-        startActivity(intent);
+        if(CurrentUserData.runningPoints > 0)
+        {
+            Intent intent = new Intent(getActivity().getApplicationContext(), GameLauncher.class);
+            startActivity(intent);
+        }
+        else
+        {
+            Toast.makeText(getActivity(), "Out of Running Points!",
+                    Toast.LENGTH_SHORT).show();
+        }
     }
 }
