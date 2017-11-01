@@ -163,6 +163,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
+                CurrentUserData.firebaseUID = mAuth.getCurrentUser().getUid();
                 CurrentUserData.username = user.username;
                 CurrentUserData.email = user.email;
                 CurrentUserData.bestGameRun = user.bestGameRun != null ? user.bestGameRun : new GameRun();

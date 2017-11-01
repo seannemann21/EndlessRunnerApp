@@ -1,6 +1,8 @@
 package com.example.endlessrunnerapp;
 
 import com.example.models.CurrentUserData;
+import com.example.models.RealRun;
+import com.example.models.GameRun;
 import com.example.models.User;
 
 import com.google.firebase.auth.FirebaseUser;
@@ -24,6 +26,16 @@ public class Database {
     public static void setUserInformation(String userId, User user) {
         DatabaseReference ref = database.getReference("users/" + userId);
         ref.setValue(user);
+    }
+
+    public static void setUserRealRunInformation(String userId, RealRun realRun) {
+        DatabaseReference ref = database.getReference("users/" + userId + "/longestRun/");
+        ref.setValue(realRun);
+    }
+
+    public static void setUserGameRunInformation(String userId, GameRun gameRun) {
+        DatabaseReference ref = database.getReference("users/" + userId + "/bestGameRun/");
+        ref.setValue(gameRun);
     }
 
 

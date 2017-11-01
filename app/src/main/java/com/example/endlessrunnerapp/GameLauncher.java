@@ -45,8 +45,11 @@ public class GameLauncher extends AppCompatActivity {
                         newHighGameRun.score = data.getIntExtra("newHighScore", 0);
                         newHighGameRun.userEmail = CurrentUserData.email;
                         CurrentUserData.bestGameRun = newHighGameRun;
+
+                        // update new user data
+                        Database.setUserGameRunInformation(CurrentUserData.firebaseUID, newHighGameRun);
                     }
-                    // update new user data
+
                 }
                 finish();
     }

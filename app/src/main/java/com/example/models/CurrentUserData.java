@@ -5,6 +5,7 @@ package com.example.models;
  */
 
 public class CurrentUserData {
+    public static String firebaseUID;
     public static String email;
     public static String username;
     //public static String password;
