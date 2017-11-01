@@ -16,6 +16,8 @@ import android.widget.Toast;
 import com.example.models.CurrentUserData;
 import com.example.endlessrunnerapp.Database;
 
+import com.example.models.GameRun;
+import com.example.models.RealRun;
 import com.example.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -129,7 +131,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         newUser.username = username;
         newUser.bestGameRun = null;
         newUser.longestRun = null;
-        newUser.runningPoints  = 0;
+        newUser.runningPoints  = 10;
 
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
@@ -162,8 +164,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                 User user = dataSnapshot.getValue(User.class);
                 CurrentUserData.username = user.username;
                 CurrentUserData.email = user.email;
-                CurrentUserData.bestGameRun = user.bestGameRun;
-                CurrentUserData.longestRun = user.longestRun;
+                CurrentUserData.bestGameRun = user.bestGameRun != null ? user.bestGameRun : new GameRun();
+                CurrentUserData.longestRun = user.longestRun != null ? user.longestRun : new RealRun();
                 CurrentUserData.runningPoints = user.runningPoints;
 
 

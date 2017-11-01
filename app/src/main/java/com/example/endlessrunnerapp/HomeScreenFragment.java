@@ -13,6 +13,8 @@ import com.example.models.CurrentUserData;
 
 import org.w3c.dom.Text;
 
+import com.example.models.CurrentUserData;
+
 
 /**
  * Fragment for the home page where the user can navigate to all pages
@@ -37,13 +39,13 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
         // Hook up the buttons
         Button btnRun = (Button) v.findViewById(R.id.buttonRun);
         btnRun.setOnClickListener(this);
+        Button btnGame = (Button) v.findViewById(R.id.buttonPlay);
+        btnGame.setOnClickListener(this);
         Button btnLdrBds = (Button) v.findViewById(R.id.buttonLeaderBoards);
         btnLdrBds.setOnClickListener(this);
         Button btnStats = (Button) v.findViewById(R.id.buttonStats);
         btnStats.setOnClickListener(this);
         Button btnHelp = (Button) v.findViewById(R.id.buttonHelp);
-        btnHelp.setOnClickListener(this);
-        Button btnGame = (Button) v.findViewById(R.id.buttonPlay);
         btnHelp.setOnClickListener(this);
 
         return v;
