@@ -126,11 +126,12 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         String username = mUsernameEditText.getText().toString();
 
         // Lets create a new user
+        // Firebase serializes that classes too! We can go ahead and set longestRun and bestGame
         final User newUser = new User();
         newUser.email = email;
         newUser.username = username;
-        newUser.bestGameRun = null;
-        newUser.longestRun = null;
+        newUser.bestGameRun = new GameRun();
+        newUser.longestRun = new RealRun();
         newUser.runningPoints  = 10;
 
         mAuth.createUserWithEmailAndPassword(email, password)
