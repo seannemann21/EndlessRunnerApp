@@ -19,7 +19,7 @@
         <activity android:name=".HelpActivity" />
         <activity android:name=".PersonalStatsActivity" />
         <activity
-            android:name=".HomeScreenActivity"
+            android:name=".LoginActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".GameLauncher"></activity>
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".HomeScreenActivity"></activity>
         <activity
             android:name="com.example.endlessrunnerapp.game.UnityPlayerActivity"
             android:label="@string/app_name"
