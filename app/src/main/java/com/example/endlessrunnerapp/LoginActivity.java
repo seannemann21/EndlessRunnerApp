@@ -9,4 +9,10 @@ public class LoginActivity extends SingleFragmentActivity {
     protected Fragment createFragment() {
         return new LoginFragment();
     }
+
+
+    @Override
+    public void onBackPressed() {
+        // We don't want the user to be able to use back button while on the login screen
+    }
 }

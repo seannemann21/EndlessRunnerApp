@@ -15,12 +15,14 @@ import org.w3c.dom.Text;
 import android.widget.Toast;
 
 import com.example.models.CurrentUserData;
+import com.google.firebase.auth.FirebaseAuth;
 
 
 /**
  * Fragment for the home page where the user can navigate to all pages
  */
 public class HomeScreenFragment extends Fragment implements View.OnClickListener {
+
 
     public HomeScreenFragment() {
         // Required empty public constructor
@@ -48,6 +50,9 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
         btnStats.setOnClickListener(this);
         Button btnHelp = (Button) v.findViewById(R.id.buttonHelp);
         btnHelp.setOnClickListener(this);
+        Button btnSignOut = (Button) v.findViewById(R.id.buttonSignOut);
+        btnSignOut.setOnClickListener(this);
+
 
         return v;
     }
@@ -69,6 +74,9 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
                 break;
             case R.id.buttonPlay:
                 goToGame();
+                break;
+            case R.id.buttonSignOut:
+                signOut();
                 break;
         }
     }
@@ -105,4 +113,14 @@ public class HomeScreenFragment extends Fragment implements View.OnClickListener
                     Toast.LENGTH_SHORT).show();
         }
     }
+
+
+    public void signOut() {
+        // sign out the user and return to the login page
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(getActivity().getApplicationContext(), LoginActivity.class);
+        startActivity(intent);
+    }
+
+
 }
