@@ -101,8 +101,8 @@ public class RunTrackerFragment extends Fragment {
                         // Called when a new location is found by the network location provider.
                         distanceMoved += location.distanceTo(lastLocation);
                         distanceMovedTxt.setText("Distance Moved = " + distanceMoved + " m");
-                        runningPointsEarnedTxt.setText("Running Points Earned on Run: " + ((int) distanceMoved) / 10);
-                        currentRunningPointsTxt.setText("Current Total Running Points: " + (((int) distanceMoved) / 10 + CurrentUserData.runningPoints));
+                        runningPointsEarnedTxt.setText("Running Points Earned on Run: " + ((int) distanceMoved) / 100);
+                        currentRunningPointsTxt.setText("Current Total Running Points: " + (((int) distanceMoved) / 100 + CurrentUserData.runningPoints));
                     }
                     lastLocation = location;
                 }
@@ -130,13 +130,13 @@ public class RunTrackerFragment extends Fragment {
     @Override
     public void onDestroy()
     {
-        CurrentUserData.runningPoints += ((int) distanceMoved) / 10;
+        CurrentUserData.runningPoints += ((int) distanceMoved) / 100;
         if(distanceMoved > CurrentUserData.longestRun.distanceRan)
         {
             currentRun.date = Calendar.getInstance().getTime();
             currentRun.id = UUID.randomUUID().toString();
             currentRun.distanceRan = distanceMoved;
-            currentRun.runningPointsEarned = ((int) distanceMoved) / 10;
+            currentRun.runningPointsEarned = ((int) distanceMoved) / 100;
             currentRun.userEmail = CurrentUserData.email;
             CurrentUserData.longestRun = currentRun;
         }
