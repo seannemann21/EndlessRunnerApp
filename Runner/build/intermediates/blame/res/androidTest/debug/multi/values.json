@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Sean Nemann\\Documents\\CSE 5236\\EndlessRunnerApp\\Runner\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+            "outputFile": "/Users/joshthomas/Desktop/cse5236/EndlessRunnerApp/C:\\Users\\Sean Nemann\\Documents\\CSE 5236\\EndlessRunnerApp\\Runner\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Sean Nemann\\Documents\\CSE 5236\\EndlessRunnerApp\\Runner\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "source": "/Users/joshthomas/Desktop/cse5236/EndlessRunnerApp/C:\\Users\\Sean Nemann\\Documents\\CSE 5236\\EndlessRunnerApp\\Runner\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -17,10 +17,26 @@
             ]
         },
         {
-            "outputFile": "C:\\Users\\Sean Nemann\\Documents\\CSE 5236\\Runner\\TheOne\\Runner\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+            "outputFile": "/Users/joshthomas/Desktop/cse5236/EndlessRunnerApp/C:\\Users\\Sean Nemann\\Documents\\CSE 5236\\Runner\\TheOne\\Runner\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Sean Nemann\\Documents\\CSE 5236\\Runner\\TheOne\\Runner\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "source": "/Users/joshthomas/Desktop/cse5236/EndlessRunnerApp/C:\\Users\\Sean Nemann\\Documents\\CSE 5236\\Runner\\TheOne\\Runner\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,99",
+                        "endLines": "2,4",
+                        "endColumns": "43,8",
+                        "endOffsets": "94,192"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/joshthomas/Desktop/cse5236/EndlessRunnerApp/Runner/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
+            "map": [
+                {
+                    "source": "/Users/joshthomas/Desktop/cse5236/EndlessRunnerApp/Runner/build/intermediates/bundles/debug/res/values/values.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

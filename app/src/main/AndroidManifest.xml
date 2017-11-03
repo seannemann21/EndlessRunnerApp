@@ -14,6 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+
+        <activity android:name=".LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".RunTrackerActivity" />
         <activity android:name=".LeaderBoardsActivity" />
         <activity android:name=".HelpActivity" />
@@ -21,14 +29,8 @@
         <activity
             android:name=".HomeScreenActivity"
             android:label="@string/app_name">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".GameLauncher"></activity>
-        <activity android:name=".LoginActivity"></activity>
         <activity
             android:name="com.example.endlessrunnerapp.game.UnityPlayerActivity"
             android:label="@string/app_name"
