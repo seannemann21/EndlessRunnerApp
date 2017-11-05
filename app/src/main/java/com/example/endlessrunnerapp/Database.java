@@ -38,6 +38,11 @@ public class Database {
         ref.setValue(gameRun);
     }
 
+    public static void getAllUserInformation(ValueEventListener el) {
+        DatabaseReference ref = database.getReference("users/");
+        ref.addValueEventListener(el);
+    }
+
 
 
 }

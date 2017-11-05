@@ -37,15 +37,15 @@ public class PersonalStatsFragment extends Fragment {
         TextView dateRan = (TextView) v.findViewById(R.id.dateRan);
 
         if(CurrentUserData.username != null)
-        username.setText("Username: " + CurrentUserData.username);
+            username.setText("Username: " + CurrentUserData.username);
         if(CurrentUserData.email != null)
-        email.setText("Email: " + CurrentUserData.email);
+            email.setText("Email: " + CurrentUserData.email);
         currentRunningPoints.setText("Current Running Points: " + CurrentUserData.runningPoints);
         if(CurrentUserData.bestGameRun != null)
         {
             pointsEarned.setText("Points Earned: " + CurrentUserData.bestGameRun.score);
             if(CurrentUserData.bestGameRun.date != null)
-            datePlayed.setText("Date Played: " + CurrentUserData.bestGameRun.date);
+                datePlayed.setText("Date Played: " + CurrentUserData.bestGameRun.date);
         }
 
         if(CurrentUserData.longestRun != null)
@@ -53,7 +53,7 @@ public class PersonalStatsFragment extends Fragment {
             distanceRan.setText("Distance Ran: " + CurrentUserData.longestRun.distanceRan + " m");
             runningPointsEarned.setText("Running Points Earned: " + CurrentUserData.longestRun.runningPointsEarned);
             if(CurrentUserData.longestRun.date != null)
-            dateRan.setText("Date Ran: " + CurrentUserData.longestRun.date);
+                dateRan.setText("Date Ran: " + CurrentUserData.longestRun.date);
         }
 
         return v;
