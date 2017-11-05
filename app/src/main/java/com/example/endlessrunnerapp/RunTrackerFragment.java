@@ -139,6 +139,9 @@ public class RunTrackerFragment extends Fragment {
             currentRun.runningPointsEarned = ((int) distanceMoved) / 100;
             currentRun.userEmail = CurrentUserData.email;
             CurrentUserData.longestRun = currentRun;
+
+            // Update the database
+            Database.setUserRealRunInformation(CurrentUserData.firebaseUID, currentRun);
         }
         super.onDestroy();
     }
