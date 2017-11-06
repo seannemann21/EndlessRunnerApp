@@ -143,6 +143,7 @@ public class RunTrackerFragment extends Fragment {
             // Update the database
             Database.setUserRealRunInformation(CurrentUserData.firebaseUID, currentRun);
         }
+        Database.setUserRunningPoints(CurrentUserData.firebaseUID, CurrentUserData.runningPoints);
         super.onDestroy();
     }
 

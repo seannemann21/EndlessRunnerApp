@@ -28,6 +28,11 @@ public class Database {
         ref.setValue(user);
     }
 
+    public static void setUserRunningPoints(String userId, int points) {
+        DatabaseReference ref = database.getReference("users/" + userId + "/runningPoints/");
+        ref.setValue(points);
+    }
+
     public static void setUserRealRunInformation(String userId, RealRun realRun) {
         DatabaseReference ref = database.getReference("users/" + userId + "/longestRun/");
         ref.setValue(realRun);

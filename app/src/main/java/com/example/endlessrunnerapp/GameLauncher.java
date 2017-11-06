@@ -49,6 +49,7 @@ public class GameLauncher extends AppCompatActivity {
                         // update new user data
                         Database.setUserGameRunInformation(CurrentUserData.firebaseUID, newHighGameRun);
                     }
+                    Database.setUserRunningPoints(CurrentUserData.firebaseUID, CurrentUserData.runningPoints);
 
                 }
                 finish();
