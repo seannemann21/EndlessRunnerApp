@@ -30,11 +30,11 @@ import java.util.UUID;
 public class RunTrackerFragment extends Fragment {
     private static final int MILLISECONDS = 1000;
 
-    public static final int UPDATE_INTERVAL_SECONDS = 10;
+    public static final int UPDATE_INTERVAL_SECONDS = 20;
     private static final long UPDATE_INTERVAL =
             MILLISECONDS * UPDATE_INTERVAL_SECONDS;
 
-    private static final int FASTEST_INTERVAL_SECONDS = 10;
+    private static final int FASTEST_INTERVAL_SECONDS = 20;
     private static final long FASTEST_INTERVAL =
             MILLISECONDS * FASTEST_INTERVAL_SECONDS;
 
