@@ -1,0 +1,96 @@
+<<<<<<< HEAD
+[
+    {
+        "outputFile": "C:\\Users\\Sean Nemann\\Documents\\CSE 5236\\Runner\\Part5Final\\Runner\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 43,
+                    "endOffset": 94
+                },
+                "from": {
+                    "file": "C:\\Users\\Sean Nemann\\Documents\\CSE 5236\\Runner\\Part5Final\\Runner\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 43,
+                        "endOffset": 94
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 3,
+                    "startColumn": 4,
+                    "startOffset": 99,
+                    "endLine": 4,
+                    "endColumn": 8,
+                    "endOffset": 192
+                },
+                "from": {
+                    "file": "C:\\Users\\Sean Nemann\\Documents\\CSE 5236\\Runner\\Part5Final\\Runner\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 99,
+                        "endLine": 4,
+                        "endColumn": 8,
+                        "endOffset": 192
+=======
+{
+    "logs": [
+        {
+            "outputFile": "/Users/joshthomas/Desktop/cse5236/EndlessRunnerApp/C:\\Users\\Sean Nemann\\Documents\\CSE 5236\\EndlessRunnerApp\\Runner\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "/Users/joshthomas/Desktop/cse5236/EndlessRunnerApp/C:\\Users\\Sean Nemann\\Documents\\CSE 5236\\EndlessRunnerApp\\Runner\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,99",
+                        "endLines": "2,4",
+                        "endColumns": "43,8",
+                        "endOffsets": "94,192"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/joshthomas/Desktop/cse5236/EndlessRunnerApp/C:\\Users\\Sean Nemann\\Documents\\CSE 5236\\Runner\\TheOne\\Runner\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "/Users/joshthomas/Desktop/cse5236/EndlessRunnerApp/C:\\Users\\Sean Nemann\\Documents\\CSE 5236\\Runner\\TheOne\\Runner\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,99",
+                        "endLines": "2,4",
+                        "endColumns": "43,8",
+                        "endOffsets": "94,192"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "/Users/joshthomas/Desktop/cse5236/EndlessRunnerApp/Runner/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values/values.xml",
+            "map": [
+                {
+                    "source": "/Users/joshthomas/Desktop/cse5236/EndlessRunnerApp/Runner/build/intermediates/bundles/debug/res/values/values.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,99",
+                        "endLines": "2,4",
+                        "endColumns": "43,8",
+                        "endOffsets": "94,192"
+>>>>>>> 22592aaac12b5d8379b12bdc20f93c3b3c350535
+                    }
+                }
+            }
+        ]
+    }
+]

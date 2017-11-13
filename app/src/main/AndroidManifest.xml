@@ -1,27 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.endlessrunnerapp">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
+        tools:replace="android:icon,android:theme"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".RunTrackerActivity" />
+        <activity android:name=".LeaderBoardsActivity" />
+        <activity android:name=".HelpActivity" />
+        <activity android:name=".PersonalStatsActivity" />
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RunTracker" />
-        <activity android:name=".Leaderboards" />
-        <activity android:name=".Help" />
-        <activity android:name=".PersonalStats"></activity>
+        <activity android:name=".GameLauncher"></activity>
+        <activity android:name=".HomeScreenActivity"></activity>
+        <activity
+            android:name="com.example.endlessrunnerapp.game.UnityPlayerActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+        android:process=":unityplayer"></activity>
     </application>
 
 </manifest>

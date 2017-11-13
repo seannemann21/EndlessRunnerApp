@@ -1,3 +1,15 @@
 <resources>
-    <string name="app_name">EndlessRunnerApp</string>
+    <string name="app_name">Real Runner</string>
+
+    <string name="login_title">Real Runner</string>
+    <string name="email">Email</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="new_user">New User</string>
+    <string name="help_description">Welcome! Use Run mode to accumulate running points, and then
+        use running points to play the game! The game costs 1 running point to play, and 1 running
+        point is gained for every 100 meters traveled in Run mode. Have fun!</string>
+    <string name="home_screen_greeting">Ready To Run, </string>
+
 </resources>
