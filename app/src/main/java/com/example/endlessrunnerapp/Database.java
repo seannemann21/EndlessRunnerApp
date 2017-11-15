@@ -1,5 +1,9 @@
 package com.example.endlessrunnerapp;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
 import com.example.models.CurrentUserData;
 import com.example.models.RealRun;
 import com.example.models.GameRun;
@@ -12,10 +16,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+
 public class Database {
 
     private static FirebaseDatabase database = FirebaseDatabase.getInstance();
-
 
 
     public static void getUserInformation(String userId, ValueEventListener el) {
@@ -31,6 +35,7 @@ public class Database {
     public static void setUserRunningPoints(String userId, int points) {
         DatabaseReference ref = database.getReference("users/" + userId + "/runningPoints/");
         ref.setValue(points);
+
     }
 
     public static void setUserRealRunInformation(String userId, RealRun realRun) {

@@ -1,7 +1,9 @@
 package com.example.endlessrunnerapp;
 
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -143,6 +145,7 @@ public class RunTrackerFragment extends Fragment {
             // Update the database
             Database.setUserRealRunInformation(CurrentUserData.firebaseUID, currentRun);
         }
+
         Database.setUserRunningPoints(CurrentUserData.firebaseUID, CurrentUserData.runningPoints);
         super.onDestroy();
     }
