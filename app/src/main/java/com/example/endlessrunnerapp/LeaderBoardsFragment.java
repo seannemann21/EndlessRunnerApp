@@ -44,7 +44,8 @@ public class LeaderBoardsFragment extends Fragment implements View.OnClickListen
 
     private List<ScoreObj> bestRunsGame;
     private List<ScoreObj> bestRunsReal;
-
+    private TextView gameScoreText;
+    private TextView runningScoreText;
 
     public LeaderBoardsFragment() {
         // Required empty public constructor
@@ -59,6 +60,11 @@ public class LeaderBoardsFragment extends Fragment implements View.OnClickListen
 
         bestRunsGame = new ArrayList<>();
         bestRunsReal = new ArrayList<>();
+
+        gameScoreText = (TextView) v.findViewById(R.id.gameScoreHeaderText);
+        runningScoreText = (TextView) v.findViewById(R.id.textView);
+        gameScoreText.setText("Connect to network for leader boards");
+        runningScoreText.setText("");
 
         getScores(v, inflater);
 
@@ -124,7 +130,8 @@ public class LeaderBoardsFragment extends Fragment implements View.OnClickListen
                     RunsLayout.addView(itemView);
 
                 }
-
+                gameScoreText.setText("Highest Game Score");
+                runningScoreText.setText("Most Running Points");
             }
 
             @Override
