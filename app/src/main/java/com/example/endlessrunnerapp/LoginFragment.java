@@ -21,12 +21,20 @@ import com.example.models.RealRun;
 import com.example.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.FirebaseNetworkException;
+import com.google.firebase.FirebaseTooManyRequestsException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthEmailException;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.StorageException;
 
 
 /**
@@ -105,8 +113,26 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(getActivity(), "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            try {
+                                throw task.getException();
+                            } catch(FirebaseNetworkException e) {
+                                Toast.makeText(getActivity(), "Failed to Connect to Network",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                            catch (FirebaseAuthInvalidCredentialsException e)
+                            {
+                                Toast.makeText(getActivity(), "Invalid Email or Password",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                            catch (FirebaseTooManyRequestsException e)
+                            {
+                                Toast.makeText(getActivity(), "Too Many Invalid Requests",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                            catch (Exception e) {
+                                Toast.makeText(getActivity(), "Authentication Error",
+                                        Toast.LENGTH_LONG).show();
+                            }
                         }
 
                         // ...
@@ -147,8 +173,31 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(getActivity(), "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            Exception x = task.getException();
+                            try {
+                                throw task.getException();
+                            }
+                            catch(FirebaseNetworkException e) {
+                                Toast.makeText(getActivity(), "Failed to Connect to Network",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                            catch(FirebaseAuthUserCollisionException e) {
+                                Toast.makeText(getActivity(), "Email Address Already in Use",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                            catch(FirebaseAuthWeakPasswordException e) {
+                                Toast.makeText(getActivity(), "Password Must Be At Least 6 Characters",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                            catch (FirebaseAuthInvalidCredentialsException e)
+                            {
+                                Toast.makeText(getActivity(), "Invalid Email or Password",
+                                        Toast.LENGTH_LONG).show();
+                            }
+                            catch (Exception e) {
+                                Toast.makeText(getActivity(), "Authentication Error",
+                                        Toast.LENGTH_LONG).show();
+                            }
                         }
 
                         // ...

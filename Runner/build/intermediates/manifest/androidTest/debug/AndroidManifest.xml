@@ -36,6 +36,7 @@
 
     <application
         android:banner="@drawable/app_banner"
+        android:debuggable="true"
         android:icon="@drawable/app_icon"
         android:isGame="true"
         android:label="@string/app_name"
@@ -55,7 +56,7 @@
 
         <meta-data
             android:name="unity.build-id"
-            android:value="1edc7b2a-ff97-486b-911b-3a0157d80d82" />
+            android:value="865150f7-6038-4876-ad91-5bcdb05d2daa" />
         <meta-data
             android:name="unity.splash-mode"
             android:value="0" />
